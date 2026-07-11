@@ -95,7 +95,10 @@ body {
 /* ---------- Sections ---------- */
 section {
   margin-bottom: 10pt;
-  page-break-inside: avoid;
+  page-break-inside: auto;
+  break-inside: auto;
+  break-after: auto;
+  break-before: auto;
 }
 
 .section-title {
@@ -270,13 +273,9 @@ section {
     print-color-adjust: exact;
   }
 
-  section {
-    page-break-inside: avoid;
-  }
-
   .experience-entry,
   .edu-entry,
   .cert-entry {
-    page-break-inside: avoid;
+    page-break-inside: auto;
   }
 }
