@@ -12,6 +12,4 @@ wheels/
 # Dados pessoais
 dossiê.md
 
-# Currículos gerados (contêm informações do dossiê)
-curriculos/**/*.html
-curriculos/**/*.pdf
+curriculos/**/*
