@@ -14,3 +14,4 @@ dossiê.md
 
 curriculos/**/*
 !curriculos/.gitkeep
+.vscode/
