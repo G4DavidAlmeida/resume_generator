@@ -1,0 +1,282 @@
+/* ===================================================================
+   GLOBAL STYLES — Currículo Tech
+   Paleta: azul-profundo (#1e3a5f), cinza-escuro (#1e293b),
+           branco (#fff), cinza-claro (#f1f5f9), azul-aço (#2563eb)
+   Target: exatamente 2 páginas A4.
+   =================================================================== */
+
+/* ---------- Page ---------- */
+@page {
+  size: A4;
+  margin: 1.4cm 1.8cm 1.4cm 1.8cm;
+
+  @bottom-center {
+    content: "Currículo Profissional  •  Página " counter(page);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 7pt;
+    color: #9aa0a8;
+  }
+}
+
+@page :first {
+  @bottom-center {
+    content: none;
+  }
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: #1e293b;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- Header ---------- */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2.5pt solid #1e3a5f;
+  padding-bottom: 10pt;
+  margin-bottom: 12pt;
+}
+
+.resume-header__name {
+  flex: 1;
+}
+
+.resume-header__name h1 {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #1e3a5f;
+  letter-spacing: -0.3pt;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.resume-header__name .subtitle {
+  font-size: 9pt;
+  font-weight: 400;
+  color: #64748b;
+  margin-top: 3pt;
+  letter-spacing: 0.3pt;
+}
+
+.resume-header__contact {
+  text-align: right;
+  font-size: 8pt;
+  color: #475569;
+  line-height: 1.6;
+  flex-shrink: 0;
+  min-width: 160pt;
+}
+
+.resume-header__contact strong {
+  color: #1e3a5f;
+}
+
+.resume-header__contact a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* ---------- Sections ---------- */
+section {
+  margin-bottom: 10pt;
+  page-break-inside: avoid;
+}
+
+.section-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #1e3a5f;
+  text-transform: uppercase;
+  letter-spacing: 0.8pt;
+  border-left: 3.5pt solid #2563eb;
+  padding-left: 7pt;
+  margin-bottom: 6pt;
+  line-height: 1.25;
+}
+
+/* ---------- Summary ---------- */
+.summary p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---------- Experience ---------- */
+.experience-entry {
+  margin-bottom: 7pt;
+}
+
+.experience-entry__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1pt;
+}
+
+.experience-entry__role {
+  font-weight: 700;
+  font-size: 10pt;
+  color: #1e3a5f;
+}
+
+.experience-entry__period {
+  font-size: 8pt;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.experience-entry__company {
+  font-weight: 600;
+  font-size: 9pt;
+  color: #2563eb;
+  margin-bottom: 3pt;
+}
+
+.experience-entry__details {
+  padding-left: 13pt;
+  list-style-type: disc;
+}
+
+.experience-entry__details li {
+  margin-bottom: 1.5pt;
+  font-size: 9pt;
+  text-align: justify;
+}
+
+.experience-entry__context {
+  font-size: 8pt;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 3pt;
+}
+
+/* ---------- Highlights ---------- */
+.highlights-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt 14pt;
+  padding-left: 13pt;
+}
+
+.highlights-grid li {
+  flex: 1 1 45%;
+  font-size: 9pt;
+  margin-bottom: 1.5pt;
+  list-style-type: "▸ ";
+}
+
+/* ---------- Skills ---------- */
+.skills-category {
+  margin-bottom: 4pt;
+}
+
+.skills-category__name {
+  font-weight: 700;
+  font-size: 9pt;
+  color: #1e3a5f;
+  margin-bottom: 1pt;
+}
+
+.skills-category__list {
+  font-size: 9pt;
+  color: #475569;
+}
+
+/* ---------- Education & Certifications ---------- */
+.edu-entry,
+.cert-entry {
+  margin-bottom: 5pt;
+  padding-left: 13pt;
+  position: relative;
+}
+
+.edu-entry::before,
+.cert-entry::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4pt;
+  width: 5pt;
+  height: 5pt;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.edu-entry__name,
+.cert-entry__name {
+  font-weight: 700;
+  font-size: 9pt;
+  color: #1e3a5f;
+}
+
+.edu-entry__meta,
+.cert-entry__meta {
+  font-size: 8pt;
+  color: #64748b;
+  margin-top: 1pt;
+}
+
+/* ---------- Availability ---------- */
+.availability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2pt 7pt;
+  border-radius: 3pt;
+  background: #e0e7ff;
+  color: #2563eb;
+  font-size: 8pt;
+  font-weight: 500;
+}
+
+/* ---------- Footer ---------- */
+.resume-footer {
+  margin-top: 14pt;
+  padding-top: 6pt;
+  border-top: 0.5pt solid #dde1e5;
+  font-size: 7.5pt;
+  color: #9aa0a8;
+  text-align: center;
+}
+
+/* ---------- Page break control ---------- */
+.page-break {
+  page-break-before: always;
+}
+
+/* ---------- Print tweaks ---------- */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  .experience-entry,
+  .edu-entry,
+  .cert-entry {
+    page-break-inside: avoid;
+  }
+}

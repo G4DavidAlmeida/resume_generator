@@ -1,0 +1,9 @@
+[project]
+name = "gerador-curriculo"
+version = "0.1.0"
+description = "Gerador de currículo PDF a partir de HTML+CSS"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "weasyprint>=63.0",
+]
