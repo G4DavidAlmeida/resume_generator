@@ -13,3 +13,4 @@ wheels/
 dossiê.md
 
 curriculos/**/*
+!curriculos/.gitkeep
