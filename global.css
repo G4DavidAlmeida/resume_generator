@@ -1,20 +1,21 @@
 /* ===================================================================
-   GLOBAL STYLES — Currículo Tech
-   Paleta: azul-profundo (#1e3a5f), cinza-escuro (#1e293b),
-           branco (#fff), cinza-claro (#f1f5f9), azul-aço (#2563eb)
-   Target: exatamente 2 páginas A4.
+   GLOBAL STYLES — Currículo Profissional v2
+   Design moderno com cards, timeline e grid de skills.
+   Paleta: navy (#1a2744), teal (#0f766e), slate (#334155),
+           warm-gray (#f8fafc), white (#fff)
+   Alvo: exatamente 2 páginas A4.
    =================================================================== */
 
 /* ---------- Page ---------- */
 @page {
   size: A4;
-  margin: 1.4cm 1.8cm 1.4cm 1.8cm;
+  margin: 1.2cm 1.4cm 1.2cm 1.4cm;
 
   @bottom-center {
     content: "Currículo Profissional  •  Página " counter(page);
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    font-size: 7pt;
-    color: #9aa0a8;
+    font-size: 6.5pt;
+    color: #94a3b8;
   }
 }
 
@@ -25,9 +26,7 @@
 }
 
 /* ---------- Reset & Base ---------- */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -35,9 +34,9 @@
 
 body {
   font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  font-size: 9.5pt;
-  line-height: 1.45;
-  color: #1e293b;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: #334155;
   background: #fff;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -45,83 +44,166 @@ body {
 
 /* ---------- Header ---------- */
 .resume-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 2.5pt solid #1e3a5f;
-  padding-bottom: 10pt;
+  text-align: center;
+  padding: 14pt 0 10pt 0;
   margin-bottom: 12pt;
+  border-bottom: 2pt solid #1a2744;
+  position: relative;
 }
 
-.resume-header__name {
-  flex: 1;
+.resume-header::after {
+  content: "";
+  position: absolute;
+  bottom: -2pt;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60pt;
+  height: 2pt;
+  background: #0f766e;
 }
 
 .resume-header__name h1 {
-  font-size: 20pt;
+  font-size: 22pt;
   font-weight: 700;
-  color: #1e3a5f;
-  letter-spacing: -0.3pt;
-  line-height: 1.1;
+  color: #1a2744;
+  letter-spacing: 0.5pt;
+  line-height: 1.15;
   text-transform: uppercase;
+  margin-bottom: 3pt;
 }
 
 .resume-header__name .subtitle {
-  font-size: 9pt;
-  font-weight: 400;
-  color: #64748b;
-  margin-top: 3pt;
-  letter-spacing: 0.3pt;
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: #0f766e;
+  letter-spacing: 0.2pt;
+  margin-bottom: 8pt;
 }
 
 .resume-header__contact {
-  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3pt 16pt;
   font-size: 8pt;
-  color: #475569;
-  line-height: 1.6;
-  flex-shrink: 0;
-  min-width: 160pt;
+  color: #64748b;
 }
 
-.resume-header__contact strong {
-  color: #1e3a5f;
+.resume-header__contact span,
+.resume-header__contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3pt;
 }
 
 .resume-header__contact a {
-  color: #2563eb;
+  color: #1a2744;
   text-decoration: none;
+  font-weight: 500;
 }
 
-/* ---------- Sections ---------- */
+.resume-header__contact .contact-separator {
+  color: #cbd5e1;
+  font-weight: 300;
+}
+
+/* ---------- Section Cards ---------- */
 section {
-  margin-bottom: 10pt;
-  page-break-inside: auto;
-  break-inside: auto;
-  break-after: auto;
-  break-before: auto;
+  margin-bottom: 9pt;
+  background: #f8fafc;
+  border-radius: 5pt;
+  padding: 9pt 11pt;
+  border: 0.5pt solid #e2e8f0;
+}
+
+/* Prevent breaks inside compact sections (summary, skills, edu, etc.) */
+.summary-section,
+.skills-section,
+.edu-lang-row section {
+  break-inside: avoid;
 }
 
 .section-title {
-  font-size: 11pt;
+  font-size: 10.5pt;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a2744;
   text-transform: uppercase;
-  letter-spacing: 0.8pt;
-  border-left: 3.5pt solid #2563eb;
-  padding-left: 7pt;
-  margin-bottom: 6pt;
-  line-height: 1.25;
+  letter-spacing: 0.6pt;
+  margin-bottom: 7pt;
+  padding-bottom: 4pt;
+  border-bottom: 1pt solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 5pt;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 3.5pt;
+  height: 12pt;
+  background: #0f766e;
+  border-radius: 1.5pt;
+  flex-shrink: 0;
 }
 
 /* ---------- Summary ---------- */
 .summary p {
   text-align: justify;
   hyphens: auto;
+  color: #475569;
+  font-size: 9pt;
+  line-height: 1.55;
 }
 
-/* ---------- Experience ---------- */
+/* ---------- Skills Grid ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5pt 12pt;
+}
+
+.skills-category {
+  margin-bottom: 1pt;
+}
+
+.skills-category__name {
+  font-weight: 700;
+  font-size: 8.5pt;
+  color: #1a2744;
+  margin-bottom: 2pt;
+}
+
+.skills-category__list {
+  font-size: 8pt;
+  color: #475569;
+  line-height: 1.45;
+}
+
+/* ---------- Experience Timeline ---------- */
 .experience-entry {
-  margin-bottom: 7pt;
+  margin-bottom: 8pt;
+  padding-left: 11pt;
+  border-left: 2pt solid #cbd5e1;
+  position: relative;
+  break-inside: avoid;
+}
+
+.experience-entry:last-child {
+  margin-bottom: 0;
+}
+
+.experience-entry::before {
+  content: "";
+  position: absolute;
+  left: -5pt;
+  top: 3pt;
+  width: 8pt;
+  height: 8pt;
+  border-radius: 50%;
+  background: #0f766e;
+  border: 2pt solid #f8fafc;
 }
 
 .experience-entry__header {
@@ -133,137 +215,125 @@ section {
 
 .experience-entry__role {
   font-weight: 700;
-  font-size: 10pt;
-  color: #1e3a5f;
+  font-size: 9.5pt;
+  color: #1a2744;
 }
 
 .experience-entry__period {
-  font-size: 8pt;
-  color: #64748b;
+  font-size: 7.5pt;
+  color: #94a3b8;
+  font-weight: 500;
   white-space: nowrap;
 }
 
 .experience-entry__company {
   font-weight: 600;
-  font-size: 9pt;
-  color: #2563eb;
+  font-size: 8.5pt;
+  color: #0f766e;
+  margin-bottom: 2pt;
+}
+
+.experience-entry__context {
+  font-size: 7.5pt;
+  color: #94a3b8;
+  font-style: italic;
   margin-bottom: 3pt;
+  line-height: 1.4;
 }
 
 .experience-entry__details {
-  padding-left: 13pt;
-  list-style-type: disc;
+  padding-left: 12pt;
+  list-style-type: none;
 }
 
 .experience-entry__details li {
   margin-bottom: 1.5pt;
-  font-size: 9pt;
+  font-size: 8.5pt;
   text-align: justify;
+  position: relative;
+  line-height: 1.45;
 }
 
-.experience-entry__context {
-  font-size: 8pt;
-  color: #64748b;
-  font-style: italic;
-  margin-bottom: 3pt;
+.experience-entry__details li::before {
+  content: "▸";
+  position: absolute;
+  left: -12pt;
+  color: #0f766e;
+  font-size: 7pt;
 }
 
-/* ---------- Highlights ---------- */
-.highlights-grid {
+/* ---------- Education & Languages Row ---------- */
+.edu-lang-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3pt 14pt;
-  padding-left: 13pt;
+  gap: 10pt;
 }
 
-.highlights-grid li {
-  flex: 1 1 45%;
-  font-size: 9pt;
-  margin-bottom: 1.5pt;
-  list-style-type: "▸ ";
+.edu-lang-row section {
+  flex: 1;
 }
 
-/* ---------- Skills ---------- */
-.skills-category {
+.edu-entry {
   margin-bottom: 4pt;
 }
 
-.skills-category__name {
+.edu-entry:last-child {
+  margin-bottom: 0;
+}
+
+.edu-entry__name {
   font-weight: 700;
   font-size: 9pt;
-  color: #1e3a5f;
-  margin-bottom: 1pt;
+  color: #1a2744;
 }
 
-.skills-category__list {
-  font-size: 9pt;
-  color: #475569;
-}
-
-/* ---------- Education & Certifications ---------- */
-.edu-entry,
-.cert-entry {
-  margin-bottom: 5pt;
-  padding-left: 13pt;
-  position: relative;
-}
-
-.edu-entry::before,
-.cert-entry::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4pt;
-  width: 5pt;
-  height: 5pt;
-  border-radius: 50%;
-  background: #2563eb;
-}
-
-.edu-entry__name,
-.cert-entry__name {
-  font-weight: 700;
-  font-size: 9pt;
-  color: #1e3a5f;
-}
-
-.edu-entry__meta,
-.cert-entry__meta {
-  font-size: 8pt;
+.edu-entry__meta {
+  font-size: 7.5pt;
   color: #64748b;
   margin-top: 1pt;
 }
 
-/* ---------- Availability ---------- */
+/* ---------- Project Highlight ---------- */
+.project-highlight {
+  background: #f0fdf9;
+  border: 0.5pt solid #ccfbf1;
+}
+
+/* ---------- Availability Tags ---------- */
 .availability-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 3pt;
+  gap: 4pt;
 }
 
 .tag {
   display: inline-block;
-  padding: 2pt 7pt;
-  border-radius: 3pt;
-  background: #e0e7ff;
-  color: #2563eb;
-  font-size: 8pt;
-  font-weight: 500;
+  padding: 2.5pt 8pt;
+  border-radius: 10pt;
+  background: #e0f2f1;
+  color: #0f766e;
+  font-size: 7.5pt;
+  font-weight: 600;
+  border: 0.5pt solid #b2dfdb;
 }
 
 /* ---------- Footer ---------- */
 .resume-footer {
-  margin-top: 14pt;
-  padding-top: 6pt;
-  border-top: 0.5pt solid #dde1e5;
-  font-size: 7.5pt;
-  color: #9aa0a8;
+  margin-top: 12pt;
+  padding-top: 5pt;
+  border-top: 0.5pt solid #e2e8f0;
+  font-size: 7pt;
+  color: #94a3b8;
   text-align: center;
 }
 
-/* ---------- Page break control ---------- */
+/* ---------- Utilities ---------- */
 .page-break {
   page-break-before: always;
+}
+
+.text-accent {
+  color: #0f766e;
+  font-weight: 600;
 }
 
 /* ---------- Print tweaks ---------- */
@@ -272,10 +342,14 @@ section {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+}
 
-  .experience-entry,
-  .edu-entry,
-  .cert-entry {
-    page-break-inside: auto;
-  }
+/* ---------- Compact mode for tight 2-page fit ---------- */
+.compact {
+  font-size: 8.5pt;
+  line-height: 1.4;
+}
+
+.compact .experience-entry__details li {
+  margin-bottom: 1pt;
 }
